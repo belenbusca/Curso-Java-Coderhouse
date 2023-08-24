@@ -1,4 +1,4 @@
-package manejoDatosTipoFloat;
+package ejerciciosEntregables.manejoDatosTipoFloat;
 
 public class NumeroFlotanteBusca {
     public static void main(String[] args) {

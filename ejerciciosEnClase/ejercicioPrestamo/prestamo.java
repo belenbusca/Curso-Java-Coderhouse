@@ -1,4 +1,4 @@
-package ejercicioPrestamo;
+package ejerciciosEnClase.ejercicioPrestamo;
 // clase 1
 
 /* CONSIGNA:
