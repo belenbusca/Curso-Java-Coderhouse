@@ -1,0 +1,4 @@
+2023-09-18 21:00:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; se esperaba "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42001-214]
