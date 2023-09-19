@@ -2,3 +2,59 @@
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; se esperaba "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
 Syntax error in SQL statement "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
 CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42001-214]
+2023-09-18 21:54:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; se esperaba "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42001-214]
+2023-09-18 22:17:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; se esperaba "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42001-214]
+2023-09-18 22:31:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; se esperaba "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42001-214]
+2023-09-18 22:33:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; se esperaba "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY [*]IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL )"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL PRIMARY KEY IDENTITY(1, 1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42001-214]
+2023-09-18 22:38:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PRODUCT( prod_id INT NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; se esperaba ")"
+Syntax error in SQL statement "CREATE TABLE PRODUCT( prod_id INT NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; expected ")"; SQL statement:
+CREATE TABLE PRODUCT( prod_id INT NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5, 2) NOT NULL, PRIMARY KEY (prod_id) ) [42001-214]
+2023-09-18 22:40:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PRODUCT( prod_id INT NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; se esperaba ")"
+Syntax error in SQL statement "CREATE TABLE PRODUCT( prod_id INT NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; expected ")"; SQL statement:
+CREATE TABLE PRODUCT( prod_id INT NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5, 2) NOT NULL, PRIMARY KEY (prod_id) ) [42001-214]
+2023-09-18 22:41:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE CLIENT( client_id INT NOT NULL [*]IDENTITY(1,1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL, PRIMARY KEY (client_id) )"; se esperaba "AS, DEFAULT, GENERATED, ON UPDATE, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE CLIENT( client_id INT NOT NULL [*]IDENTITY(1,1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL, PRIMARY KEY (client_id) )"; expected "AS, DEFAULT, GENERATED, ON UPDATE, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL IDENTITY(1,1), client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL, PRIMARY KEY (client_id) ) [42001-214]
+2023-09-18 22:42:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENT" ya existe
+Table "CLIENT" already exists; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL AUTO_INCREMENT, client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL, PRIMARY KEY (client_id) ) [42101-214]
+2023-09-18 22:44:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENT" ya existe
+Table "CLIENT" already exists; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL AUTO_INCREMENT, client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42101-214]
+2023-09-18 22:44:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENT" ya existe
+Table "CLIENT" already exists; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL , client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42101-214]
+2023-09-18 22:44:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "CLIENT" ya existe
+Table "CLIENT" already exists; SQL statement:
+CREATE TABLE CLIENT( client_id INT NOT NULL , client_name VARCHAR(75) NOT NULL, client_lastname VARCHAR(75) NOT NULL, client_docnumber VARCHAR(11) NOT NULL ) [42101-214]
+2023-09-18 22:51:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; se esperaba ")"
+Syntax error in SQL statement "CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; expected ")"; SQL statement:
+CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5, 2) NOT NULL, PRIMARY KEY (prod_id) ) [42001-214]
+2023-09-18 22:52:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; se esperaba ")"
+Syntax error in SQL statement "CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL, PRIMARY KEY (prod_id) )"; expected ")"; SQL statement:
+CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5, 2) NOT NULL, PRIMARY KEY (prod_id) ) [42001-214]
+2023-09-18 22:52:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL )"; se esperaba ")"
+Syntax error in SQL statement "CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5[*], 2) NOT NULL )"; expected ")"; SQL statement:
+CREATE TABLE PRODUCT( prod_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, prod_description VARCHAR(150) NOT NULL, prod_code VARCHAR(50) NOT NULL, prod_stock INT NOT NULL, prod_price FLOAT(5, 2) NOT NULL ) [42001-214]
