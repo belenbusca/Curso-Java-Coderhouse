@@ -1,16 +1,23 @@
 package edu.coderhouse.jpa.entity;
 
 import jakarta.persistence.Entity;
+
+import java.util.List;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table (name = "CLIENT")
 public class Client {
 
+    // CONSTRUCTORES
     public Client() {
         super();
     }
@@ -23,20 +30,29 @@ public class Client {
         this.docnumber = docnumber;
     }
 
+    //RELACIONES
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Identificador del cliente", example = "1", requiredMode = Schema.RequiredMode.AUTO)
     @Column(name = "client_id")
     private int id;
-
+    
     @Column(name = "client_name")
+    @Schema(description = "Nombre del cliente", example = "Juan", requiredMode = Schema.RequiredMode.REQUIRED)
     private String name;
-
+    
     @Column(name = "client_lastname")
+    @Schema(description = "Apellido del cliente", example = "Perez", requiredMode = Schema.RequiredMode.REQUIRED)
     private String lastname;
-
+    
     @Column(name = "client_docnumber")
+    @Schema(description = "DNI del cliente", example = "12345678", requiredMode = Schema.RequiredMode.REQUIRED)
     private String docnumber;
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.MERGE)
+    private List<Invoice> invoices;
+    
+    //GETTERS & SETTERS
     public int getId() {
         return id;
     }

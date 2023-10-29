@@ -2,6 +2,10 @@ package edu.coderhouse.jpa.entity;
 
 import java.util.Date;
 
+import java.util.List;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,18 +36,26 @@ public class Invoice {
     //RELACIONES
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Identificador del Comprobante", example = "1", requiredMode = Schema.RequiredMode.AUTO)
     @Column(name = "inv_id")
     private int id;
-
-    @ManyToOne
+    
+    @ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="inv_client_id") //!!!! no se si esta bien, sera client_id en vez de inv_client_id?
+    @Schema(description = "ID Cliente", example = "3", requiredMode = Schema.RequiredMode.REQUIRED)
 	private Client client;
-
+    
+    @Schema(description = "Momento de creacion", example = "2023-09-19 14:30:01", requiredMode = Schema.RequiredMode.REQUIRED)
     @Column(name = "inv_created_at")
     private Date created_at;
-
+    
+    @Schema(description = "Total", example = "1834.41", requiredMode = Schema.RequiredMode.REQUIRED)
     @Column(name = "inv_total")
     private long total;
+
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL) //DETAIL DEPENDE DE INVOICE, por eso all y no marge
+    @Schema(description = "Detalle del Comprobante", requiredMode = Schema.RequiredMode.REQUIRED)
+    private List<InvoiceDetail> invoiceDetails;
 
     // GETTERS & SETTERS
     public int getId() {
@@ -75,5 +88,25 @@ public class Invoice {
 
     public void setTotal(long total) {
         this.total = total;
+    }
+
+    public List<InvoiceDetail> getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
     }  
+
+    public InvoiceDetail addLinea(InvoiceDetail detail) {
+		getInvoiceDetails().add(detail);
+		detail.setInvoice(this);
+		return detail;
+	}
+
+	public InvoiceDetail removeLinea(InvoiceDetail detail) { // o hago void y no las devuelve TODO!!!
+		getInvoiceDetails().remove(detail);
+		detail.setInvoice(null);
+        return detail;
+	}
 }

@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.coderhouse.jpa.entity.Client;
 import edu.coderhouse.jpa.service.ClientService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("api/client")
@@ -23,11 +26,22 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
+    @Operation(summary = "GET clientes", description = "Obtiene todos los clientes")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Clientes encontrados"),
+        @ApiResponse(responseCode = "404", description = "Clientes no encontrados"),
+    })
     @GetMapping(value = "/", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<Client>> getClients() {
         return ResponseEntity.ok(clientService.findAll());
     }
     
+
+    @Operation(summary = "GET cliente", description = "Obtiene un cliente por su id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Cliente encontrado"),
+            @ApiResponse(responseCode = "404", description = "Cliente no encontrado")
+    })
     @GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Optional<Client>> getClientById(@PathVariable int id){
         Optional<Client> client = clientService.findClientById(id);
@@ -38,7 +52,12 @@ public class ClientController {
         }
     }
 
-    @PostMapping(value = "/", consumes = { MediaType.APPLICATION_JSON_VALUE })
+    @Operation(summary = "POST cliente", description = "Crea un cliente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Cliente creado"),
+            @ApiResponse(responseCode = "400", description = "Cliente no creado")
+    })
+    @PostMapping(value = "/", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Client> saveClient(@RequestBody Client client) {
         try {
             Client clientSaved = clientService.save(client);

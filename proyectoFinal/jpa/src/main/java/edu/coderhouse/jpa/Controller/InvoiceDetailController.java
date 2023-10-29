@@ -38,6 +38,7 @@ public class InvoiceDetailController {
         }
     }
 
+    //tal vez no lo use si creo los invoice detail desde el post de invoice como comento un compañero en la ultima clase :P
     @PostMapping(value = "/", consumes = { MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<InvoiceDetail> saveInvoiceDetail(@RequestBody InvoiceDetail invoiceDetail){
         try{

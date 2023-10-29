@@ -1,5 +1,6 @@
 package edu.coderhouse.jpa.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,14 +33,14 @@ public class InvoiceDetail {
     @Column(name = "inv_detail_id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "inv_detail_inv_id")
     private Invoice invoice;
 
     @Column(name = "inv_detail_amount")
     private int amount;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "inv_detail_prod_id")
     private Product product;
 

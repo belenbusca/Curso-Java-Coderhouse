@@ -1,10 +1,15 @@
 package edu.coderhouse.jpa.entity;
 
+import java.util.List;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -42,6 +47,10 @@ public class Product {
 
     @Column(name = "prod_price")
     private Long price;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
+    @Schema(description = "Detalle del Comprobante", requiredMode = Schema.RequiredMode.REQUIRED)
+    private List<InvoiceDetail> invoiceDetails;
 
     //GETTERS AND SETTERS
     public int getId() {
