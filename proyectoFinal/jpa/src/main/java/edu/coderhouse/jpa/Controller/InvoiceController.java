@@ -8,13 +8,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.coderhouse.jpa.entity.Invoice;
 import edu.coderhouse.jpa.service.InvoiceService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("api/invoice")
@@ -23,12 +26,23 @@ public class InvoiceController {
     @Autowired
     private InvoiceService invoiceService;
 
-    @GetMapping(value = "/", produces = { MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<Invoice>> getInvoice() {
+    @Operation(summary = "GET Facturas", description = "Obtiene todas las Facturas")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Facturas encontradas"),
+        @ApiResponse(responseCode = "404", description = "Facturas no encontradas"),
+    })
+    @GetMapping(value = "/", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Invoice>> getInvoices() {
         return ResponseEntity.ok(invoiceService.findAll());
     }    
 
-    @GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE})
+
+    @Operation(summary = "GET Factura", description = "Obtiene una Factura por su id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Factura encontrada"),
+            @ApiResponse(responseCode = "404", description = "Factura no encontrada")
+    })
+    @GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Optional<Invoice>> getInvoiceById(@PathVariable int id){
         Optional<Invoice> invoice = invoiceService.findInvoiceById(id);
         if(invoice.isPresent()){
@@ -38,6 +52,12 @@ public class InvoiceController {
         }
     }
 
+/* 
+    @Operation(summary = "POST Factura", description = "Crea una Factura")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Factura creada"),
+            @ApiResponse(responseCode = "400", description = "Factura no creada")
+    })
     @PostMapping(value = "/", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Invoice> saveInvoice(@RequestBody Invoice invoice){
         try{
@@ -47,5 +67,5 @@ public class InvoiceController {
             e.printStackTrace();
             return ResponseEntity.badRequest().build();
         }
-    }
+    }*/
 }

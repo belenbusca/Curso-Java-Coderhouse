@@ -5,7 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.*;
+/*import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.Table;*/
 
 @Entity
 @Table(name = "INVOICE")
@@ -36,8 +37,8 @@ public class Invoice {
     //RELACIONES
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(description = "Identificador del Comprobante", example = "1", requiredMode = Schema.RequiredMode.AUTO)
     @Column(name = "inv_id")
+    @Schema(description = "Identificador del Comprobante", example = "1", requiredMode = Schema.RequiredMode.AUTO)
     private int id;
     
     @ManyToOne(cascade = CascadeType.MERGE)
@@ -53,7 +54,8 @@ public class Invoice {
     @Column(name = "inv_total")
     private long total;
 
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL) //DETAIL DEPENDE DE INVOICE, por eso all y no marge
+    //@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL) //DETAIL DEPENDE DE INVOICE, por eso all y no marge
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @Schema(description = "Detalle del Comprobante", requiredMode = Schema.RequiredMode.REQUIRED)
     private List<InvoiceDetail> invoiceDetails;
 
@@ -98,7 +100,7 @@ public class Invoice {
         this.invoiceDetails = invoiceDetails;
     }  
 
-    public InvoiceDetail addLinea(InvoiceDetail detail) {
+    /*public InvoiceDetail addLinea(InvoiceDetail detail) {
 		getInvoiceDetails().add(detail);
 		detail.setInvoice(this);
 		return detail;
@@ -108,5 +110,5 @@ public class Invoice {
 		getInvoiceDetails().remove(detail);
 		detail.setInvoice(null);
         return detail;
-	}
+	}*/
 }
