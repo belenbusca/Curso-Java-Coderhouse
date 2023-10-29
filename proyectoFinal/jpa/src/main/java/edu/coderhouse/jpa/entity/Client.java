@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -49,6 +51,7 @@ public class Client {
     @Schema(description = "DNI del cliente", example = "12345678", requiredMode = Schema.RequiredMode.REQUIRED)
     private String docnumber;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client", cascade = CascadeType.MERGE)
     private List<Invoice> invoices;
     

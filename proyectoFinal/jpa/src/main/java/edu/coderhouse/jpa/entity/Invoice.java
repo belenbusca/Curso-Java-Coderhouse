@@ -46,7 +46,7 @@ public class Invoice {
     @Schema(description = "ID Cliente", example = "3", requiredMode = Schema.RequiredMode.REQUIRED)
 	private Client client;
     
-    @Schema(description = "Momento de creacion", example = "2023-09-19 14:30:01", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "Momento de creacion", example = "2023-09-19 14:30:01", hidden = true)
     @Column(name = "inv_created_at")
     private Date created_at;
     

@@ -2,6 +2,8 @@ package edu.coderhouse.jpa.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -49,6 +51,7 @@ public class Product {
     private Long price;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
+    @JsonIgnore
     @Schema(description = "Detalle del Comprobante", requiredMode = Schema.RequiredMode.REQUIRED)
     private List<InvoiceDetail> invoiceDetails;
 

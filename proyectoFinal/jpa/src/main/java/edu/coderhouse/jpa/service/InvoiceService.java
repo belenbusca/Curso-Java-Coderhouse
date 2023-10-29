@@ -2,34 +2,34 @@ package edu.coderhouse.jpa.service;
 
 import java.util.List;
 import java.util.Optional;
-//import java.util.Date;
+import java.util.Date;
 
-//import java.text.ParseException;
-//import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestTemplate;
 
 
 import edu.coderhouse.jpa.Repository.InoviceRepository;
-//import edu.coderhouse.jpa.Repository.ProductRepository;
-//import edu.coderhouse.jpa.entity.Client;
+import edu.coderhouse.jpa.Repository.ProductRepository;
+import edu.coderhouse.jpa.entity.Client;
 import edu.coderhouse.jpa.entity.Invoice;
-//import edu.coderhouse.jpa.entity.InvoiceDetail;
-//import edu.coderhouse.jpa.entity.WorldClock;
+import edu.coderhouse.jpa.entity.InvoiceDetail;
+import edu.coderhouse.jpa.entity.WorldClock;
 
 @Service
 public class InvoiceService {
     @Autowired
     private InoviceRepository inoviceRepository;
     // para validar existencia de cliente y producto:
-    //@Autowired
-    //private ProductRepository productRepository;
-    //@Autowired
-    //private ClientService clientService;
-    //@Autowired
-    //private ProductService productService;
+    @Autowired
+    private ProductRepository productRepository;
+    @Autowired
+    private ClientService clientService;
+    @Autowired
+    private ProductService productService;
 
     public void delete(int id){
         inoviceRepository.deleteById(id);
@@ -43,7 +43,7 @@ public class InvoiceService {
         return inoviceRepository.findAll();
     }
     
-    /* 
+    
     public Invoice save(Invoice invoice) {
         Boolean clientExists = clientExists(invoice.getClient());
         Boolean productExists = productExists(invoice.getInvoiceDetails());
@@ -52,7 +52,6 @@ public class InvoiceService {
         if(clientExists && productExists && enoughStock) {
             // actualizar stock y MOSTRARLO
             var invoiceToSave = buildInvoice(invoice);
-            buildDetails(invoice.getInvoiceDetails());
             updateStock(invoiceToSave.getInvoiceDetails());
             return inoviceRepository.save(invoice);
         }
@@ -144,8 +143,4 @@ public class InvoiceService {
         return totalInvoice;
     }
 
-    private void buildDetails(List<InvoiceDetail> details){
-
-    }
-*/
 }
