@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.coderhouse.jpa.entity.Invoice;
+import edu.coderhouse.jpa.request.InvoiceRequest;
 import edu.coderhouse.jpa.service.InvoiceService;
 import edu.coderhouse.jpa.service.InvoiceDetailService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -62,7 +63,7 @@ public class InvoiceController {
             @ApiResponse(responseCode = "400", description = "Factura no creada")
     })
     @PostMapping(value = "/", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<Invoice> saveInvoice(@RequestBody Invoice invoice){
+    public ResponseEntity<Invoice> saveInvoice(@RequestBody InvoiceRequest invoice){
         try{
             Invoice invoiceSaved = invoiceService.save(invoice);
             invoiceDetailService.save(invoice.getInvoiceDetails(), invoiceSaved);

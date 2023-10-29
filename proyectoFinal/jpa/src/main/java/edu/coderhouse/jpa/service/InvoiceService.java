@@ -18,6 +18,7 @@ import edu.coderhouse.jpa.entity.Client;
 import edu.coderhouse.jpa.entity.Invoice;
 import edu.coderhouse.jpa.entity.InvoiceDetail;
 import edu.coderhouse.jpa.entity.WorldClock;
+import edu.coderhouse.jpa.request.InvoiceRequest;
 
 @Service
 public class InvoiceService {
@@ -44,7 +45,7 @@ public class InvoiceService {
     }
     
     
-    public Invoice save(Invoice invoice) {
+    public Invoice save(InvoiceRequest invoice) {
         Boolean clientExists = clientExists(invoice.getClient());
         Boolean productExists = productExists(invoice.getInvoiceDetails());
         Boolean enoughStock = enoughStock(invoice.getInvoiceDetails());
